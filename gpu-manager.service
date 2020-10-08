@@ -1,21 +1,11 @@
 [Unit]
 Description=Detect the available GPUs and deal with any system changes
-Before=display-manager.service
-# Before=oem-config.service
-
-# Pulled in from oem-config.target
+Before=multi-user.target
 Requires=basic.target
-Conflicts=rescue.service rescue.target multi-user.target
-After=basic.target rescue.service rescue.target
-Wants=network-manager.service getty-static.service systemd-user-sessions.service
-# End oem-config.target section
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/gpu-manager --log /var/log/gpu-manager.log
-StandardOutput=null
-StandardError=null
+ExecStart=/usr/bin/gpu-manager
 
 [Install]
-WantedBy=display-manager.service
-WantedBy=oem-config.service
+WantedBy=multi-user.target
