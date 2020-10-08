@@ -1371,8 +1371,8 @@ static bool create_prime_outputclass(void) {
                 "    Option \"IgnoreDisplayDevices\" \"CRT\"\n"
                 "    Option \"PrimaryGPU\" \"Yes\"\n"
                 "    ModulePath \"/usr/lib/nvidia/xorg\"\n"
-                "EndSection\n\n",
-                /* multiarch */);
+                "EndSection\n\n"/*,
+                multiarch */);
 
         fflush(file);
         return true;
